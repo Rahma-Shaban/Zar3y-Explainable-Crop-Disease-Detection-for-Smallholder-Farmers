@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environment
+venv/
+.env
+
+# Data (too large for git)
+data/plant_village/
+data/field_photos/
+
+# Models (too large for git — use Git LFS or release artifacts)
+models/*.h5
+models/*.tflite
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Outputs (regeneratable — optionally track key ones)
+# outputs/
+
+# Misc
+*.log
