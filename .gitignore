@@ -15,10 +15,12 @@ venv/
 # Data (too large for git)
 data/plant_village/
 data/field_photos/
+data/split_data/
 
 # Models (too large for git — use Git LFS or release artifacts)
-models/*.h5
+models/*.keras
 models/*.tflite
+
 
 # IDE
 .vscode/
