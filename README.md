@@ -10,11 +10,11 @@ Zar3y ("my crop") identifies crop leaf diseases from a single photo — returnin
 
 | Role | Member | Responsibilities |
 |------|--------|-----------------|
-| Data Engineer | Member 1 | Data prep, augmentation, OOD test set |
-| ML Engineer (Train) | Member 2 | Transfer learning, training pipeline |
-| ML Engineer (Eval) | Member 3 | Evaluation, metrics, benchmarks |
-| Backend Developer | Member 4 | FastAPI, TFLite inference, quantization |
-| Frontend Developer | Member 5 | Streamlit demo, Grad-CAM UI, demo recording |
+| Data Engineer | Nourhan | Data prep, augmentation, OOD test set |
+| ML Engineer (Train) | shahd | Transfer learning, training pipeline |
+| ML Engineer (Eval) | menna | Evaluation, metrics, benchmarks |
+| Backend Developer & team leader | Rahma | FastAPI, TFLite inference, quantization |
+| Frontend Developer | tasneem | Streamlit demo, Grad-CAM UI, demo recording |
 
 ## Dataset
 
@@ -91,8 +91,8 @@ zar3y-crop-disease/
 ## Setup
 
 ```bash
-git clone https://github.com/<org>/zar3y-crop-disease.git
-cd zar3y-crop-disease
+git clone https://github.com/Rahma-Shaban/Zar3y-Explainable-Crop-Disease-Detection-for-Smallholder-Farmers.git
+cd Zar3y-Explainable-Crop-Disease-Detection-for-Smallholder-Farmers
 python -m venv venv
 venv\Scripts\activate            # Windows
 pip install -r requirements.txt
