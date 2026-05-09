@@ -18,7 +18,6 @@ Deliverables:
 - Per-class count table (print + update README)
 - outputs/augmentation_samples.png
 """
-
 import os
 import shutil
 import random
@@ -131,9 +130,10 @@ def report_distribution(train_counts, val_counts, test_counts):
             'Validation': val_counts.get(cls, 0),
             'Test': test_counts.get(cls, 0)
         })
+
     df = pd.DataFrame(data)
     print("\nClass Distribution:")
-    display(df)
+    print(df)
 
 
 # -----------------------------
@@ -172,6 +172,7 @@ def save_aug_samples(train_dir, output_path):
             plt.imshow(aug_images[i].numpy().astype("uint8"))
             plt.axis("off")
 
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
         plt.savefig(output_path)
 
     print("Saved:", output_path)
@@ -182,12 +183,21 @@ def save_aug_samples(train_dir, output_path):
 # -----------------------------
 if __name__ == "__main__":
 
+    #  Download dataset
     raw_path = download_dataset()
 
-    base_dir = "/kaggle/input/plantvillage-dataset/plantvillage dataset/color"
-    filtered_dir = "/kaggle/working/filtered_data"
-    split_dir = "/kaggle/working/split_data"
+    
+    base_dir = os.path.join(raw_path, "plantvillage dataset", "color")
 
+    #  Local project folders
+    filtered_dir = "data/filtered_data"
+    split_dir = "data/split_data"
+    output_img_path = "outputs/augmentation_samples.png"
+
+    os.makedirs("data", exist_ok=True)
+    os.makedirs("outputs", exist_ok=True)
+
+    #  Pipeline
     filter_classes(base_dir, filtered_dir)
 
     train_dir, val_dir, test_dir = split_dataset(filtered_dir, split_dir)
@@ -198,4 +208,4 @@ if __name__ == "__main__":
 
     report_distribution(train_counts, val_counts, test_counts)
 
-    save_aug_samples(train_dir, "/kaggle/working/augmentation_samples.png")
+    save_aug_samples(train_dir, output_img_path)
