@@ -39,7 +39,20 @@ Zar3y ("my crop") identifies crop leaf diseases from a single photo — returnin
 
 ### Per-Class Distribution
 
-_TODO: Fill after running `src/data_prep.py`_
+| Class | Train | Validation | Test |
+|---|---|---|---|
+| Corn_(maize)___Common_rust_ | 834 | 179 | 179 |
+| Pepper,_bell___Bacterial_spot | 697 | 150 | 150 |
+| Pepper,_bell___healthy | 1034 | 222 | 222 |
+| Potato___Early_blight | 700 | 150 | 150 |
+| Potato___Late_blight | 700 | 150 | 150 |
+| Potato___healthy | 106 | 23 | 23 |
+| Tomato___Early_blight | 700 | 150 | 150 |
+| Tomato___Late_blight | 1336 | 286 | 287 |
+| Tomato___Leaf_Mold | 666 | 143 | 143 |
+| Tomato___healthy | 1113 | 239 | 239 |
+
+> Note: `Potato___healthy` contains fewer than 500 images. Class weights will be applied during training to handle class imbalance.
 
 ## Architecture
 
