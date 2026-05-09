@@ -50,7 +50,7 @@ LOCKED_CLASSES = [
 
 
 # -----------------------------
-# 1. Download Dataset
+#  Download Dataset
 # -----------------------------
 def download_dataset():
     path = kagglehub.dataset_download("abdallahalidev/plantvillage-dataset")
@@ -59,7 +59,7 @@ def download_dataset():
 
 
 # -----------------------------
-# 2. Filter Classes
+#  Filter Classes
 # -----------------------------
 def filter_classes(base_dir, output_dir):
     os.makedirs(output_dir, exist_ok=True)
@@ -75,7 +75,7 @@ def filter_classes(base_dir, output_dir):
 
 
 # -----------------------------
-# 3. Split Dataset
+#  Split Dataset
 # -----------------------------
 def split_dataset(base_dir, output_dir):
 
@@ -107,7 +107,7 @@ def split_dataset(base_dir, output_dir):
 
 
 # -----------------------------
-# 4. Count Images
+#  Count Images
 # -----------------------------
 def count_images(folder):
     counts = {}
@@ -119,7 +119,7 @@ def count_images(folder):
 
 
 # -----------------------------
-# 5. Report Distribution
+#  Report Distribution
 # -----------------------------
 def report_distribution(train_counts, val_counts, test_counts):
     data = []
@@ -137,7 +137,7 @@ def report_distribution(train_counts, val_counts, test_counts):
 
 
 # -----------------------------
-# 6. Augmentation
+#  Augmentation
 # -----------------------------
 def build_augmentation():
     return tf.keras.Sequential([
@@ -150,7 +150,7 @@ def build_augmentation():
 
 
 # -----------------------------
-# 7. Save Augmentation Samples
+#  Save Augmentation Samples
 # -----------------------------
 def save_aug_samples(train_dir, output_path):
 
