@@ -28,3 +28,6 @@ streamlit>=1.25.0
 
 # HTTP Client (Streamlit → FastAPI)
 requests>=2.31.0
+
+# Dataset
+kagglehub>=0.2.0
