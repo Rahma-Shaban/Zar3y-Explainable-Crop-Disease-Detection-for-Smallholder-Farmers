@@ -18,7 +18,7 @@ data/field_photos/
 data/split_data/
 
 # Models (too large for git — use Git LFS or release artifacts)
-models/*.keras
+models/*.h5
 models/*.tflite
 
 
