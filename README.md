@@ -138,7 +138,13 @@ _TODO: Fill after quantization_
 
 ## OOD Findings
 
-_TODO: Fill after OOD evaluation_
+The model was evaluated on real-world field photos (`data/field_photos`) to test generalization beyond the training distribution.
+
+Performance reflects domain shift between clean dataset images and real mobile captures.
+
+- OOD Accuracy: 38.78%
+- Total Images: 49
+- Correct Predictions: 19
 
 ## Limitations
 

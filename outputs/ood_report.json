@@ -1,0 +1,7 @@
+{
+    "ood_accuracy": 0.3877551020408163,
+    "accuracy_percentage": 38.775510204081634,
+    "total_images": 49,
+    "correct_predictions": 19,
+    "wrong_predictions": 30
+}
