@@ -210,16 +210,16 @@ if __name__ == "__main__":
     history2 = train_phase2(model, base_model, train_ds, val_ds, 10, class_weights)
 
     # combine history
-combined = {}
-for k in history1.history:
-    combined[k] = history1.history[k] + history2.history[k]
+    combined = {}
+    for k in history1.history:
+        combined[k] = history1.history[k] + history2.history[k]
 
-# convert numpy types → python native types
-for k in combined:
-    combined[k] = [float(x) for x in combined[k]]
+    # convert numpy types → python native types
+    for k in combined:
+        combined[k] = [float(x) for x in combined[k]]
 
-with open(HISTORY_PATH, "w") as f:
-    json.dump(combined, f, indent=4)
+    with open(HISTORY_PATH, "w") as f:
+        json.dump(combined, f, indent=4)
 
     print("\n✅ Training completed!")
     print(f"Model saved at: {MODEL_PATH}")
