@@ -2,14 +2,10 @@
 Zar3y — TFLite Inference Runtime
 
 Reusable inference helper used by the FastAPI backend.
-
-Responsibilities:
-1. Load the quantized TFLite model
-2. Preprocess input images (resize, normalize)
-3. Run inference and return predicted class + confidence
-4. Generate Grad-CAM overlay from the full Keras model
 """
+
 import io
+import os
 import cv2
 import numpy as np
 import tensorflow as tf
@@ -22,13 +18,21 @@ from src.settings import CLASS_NAMES
 
 class TFLitePredictor:
     def __init__(self):
-        self.model = tf.keras.models.load_model("best_model.keras")
+
+        # -----------------------------
+        # FIX: correct model path (GitHub-safe)
+        # -----------------------------
+        BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+        MODEL_PATH = os.path.join(BASE_DIR, "models", "best_model.keras")
+
+        self.model = tf.keras.models.load_model(MODEL_PATH)
         self.img_size = 224
 
     # -------------------------
     # preprocessing
     # -------------------------
     def preprocess(self, image_bytes):
+
         image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
         image = image.resize((self.img_size, self.img_size))
 
@@ -45,6 +49,7 @@ class TFLitePredictor:
     # prediction
     # -------------------------
     def predict(self, image_bytes):
+
         image = self.preprocess(image_bytes)
 
         predictions = self.model.predict(image, verbose=0)[0]
@@ -57,15 +62,15 @@ class TFLitePredictor:
         return class_name, confidence, predictions.tolist()
 
     # -------------------------
-    # Grad-CAM (simplified overlay)
+    # Grad-CAM (placeholder visualization)
     # -------------------------
     def generate_gradcam(self, image_bytes):
+
         image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
         image = image.resize((224, 224))
 
         image_np = np.array(image)
 
-        # NOTE: simplified visualization (not real Grad-CAM)
         heatmap = np.zeros((224, 224), dtype=np.uint8)
         cv2.circle(heatmap, (112, 112), 70, 255, -1)
 
