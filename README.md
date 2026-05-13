@@ -175,11 +175,11 @@ Performance reflects domain shift between clean dataset images and real mobile c
 
 ## Acceptance Criteria
 
-- [ ] 10 locked classes, 70/15/15 split, seed=42
-- [ ] ≥ 90% macro F1 on test split
-- [ ] Honest confusion matrix + per-class P/R/F1
-- [ ] TFLite INT8 ≥ 3× smaller, < 5% accuracy drop
-- [ ] /predict < 500ms on CPU
-- [ ] Grad-CAM in Streamlit UI
-- [ ] OOD test with ≥ 3 failure cases
-- [ ] Total cost = $0
+- [✅] 10 locked classes, 70/15/15 split, seed=42
+- [✅] ≥ 90% macro F1 on test split
+- [✅] Honest confusion matrix + per-class P/R/F1
+- [✅] TFLite INT8 ≥ 3× smaller, < 5% accuracy drop
+- [✅] /predict < 500ms on CPU
+- [✅] Grad-CAM in Streamlit UI
+- [✅] OOD test with ≥ 3 failure cases
+- [✅] Total cost = $0
