@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 sys.path.append(BASE_DIR)
 
 from src.inference import TFLitePredictor
-from src.settings import DISEASE_INFO, DISPLAY_NAMES
+from src.settings import DISEASE_INFO, DISPLAY_NAMES, CLASS_NAMES
 
 
 app = FastAPI(
@@ -84,6 +84,12 @@ async def predict(file: UploadFile = File(...)):
 
     elapsed_ms = (time.perf_counter() - start) * 1000
 
+    # Build probabilities dictionary mapped to display names
+    probabilities_dict = {
+        DISPLAY_NAMES.get(CLASS_NAMES[i], CLASS_NAMES[i]): float(probs[i])
+        for i in range(len(CLASS_NAMES))
+    }
+
     return JSONResponse(
         content={
             "class_name": class_name,
@@ -93,5 +99,6 @@ async def predict(file: UploadFile = File(...)):
             "next_step": info["next_step"],
             "grad_cam_base64": gradcam_base64,
             "inference_ms": round(elapsed_ms, 1),
+            "probabilities": probabilities_dict,
         }
     )

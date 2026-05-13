@@ -184,10 +184,8 @@ def save_aug_samples(train_dir, output_path):
 if __name__ == "__main__":
 
     #  Download dataset
-    raw_path = download_dataset()
-
-    
-    base_dir = os.path.join(raw_path, "plantvillage dataset", "color")
+    # raw_path = download_dataset()
+    # base_dir = os.path.join(raw_path, "plantvillage dataset", "color")
 
     #  Local project folders
     filtered_dir = "data/filtered_data"
@@ -198,7 +196,7 @@ if __name__ == "__main__":
     os.makedirs("outputs", exist_ok=True)
 
     #  Pipeline
-    filter_classes(base_dir, filtered_dir)
+    # filter_classes(base_dir, filtered_dir)
 
     train_dir, val_dir, test_dir = split_dataset(filtered_dir, split_dir)
 
