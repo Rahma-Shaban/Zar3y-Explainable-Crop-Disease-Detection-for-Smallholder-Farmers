@@ -4,13 +4,17 @@ Zar3y — Project-Wide Settings & Constants
 All locked hyperparameters, paths, and class definitions live here.
 Import this module from any script to ensure consistency.
 """
+
 import json
 import os
 
 # -----------------------------
 # Load class names
 # -----------------------------
-BASE_DIR = os.path.dirname(__file__)
+
+# ⬅️ نطلع من src إلى root folder
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
 CLASS_NAMES_PATH = os.path.join(BASE_DIR, "class_names.json")
 
 with open(CLASS_NAMES_PATH, "r", encoding="utf-8") as f:
