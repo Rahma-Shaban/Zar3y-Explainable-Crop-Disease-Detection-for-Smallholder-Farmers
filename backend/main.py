@@ -1,21 +1,24 @@
 """
 Zar3y — FastAPI Backend (Requirement 5)
 
-REST API for crop disease prediction using the quantized TFLite model.
-
-Endpoints:
-- GET  /health          → Health check
-- POST /predict         → Accept image, return prediction + Grad-CAM
-
-Run with: uvicorn backend.main:app --host 0.0.0.0 --port 8000
+REST API for crop disease prediction using the model.
 """
+
 import base64
 import time
 import cv2
+import os
+import sys
 
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+
+# -----------------------------
+# FIX: make project root visible to Python
+# -----------------------------
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+sys.path.append(BASE_DIR)
 
 from src.inference import TFLitePredictor
 from src.settings import DISEASE_INFO, DISPLAY_NAMES
